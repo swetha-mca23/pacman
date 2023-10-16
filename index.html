@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pac1{
+            top: 0px;
+            left: 0px;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+    
+</head>
+<body>
+    <img id="pac1" src="images/PacMan1.png">
+
+    <script>
+        var direction=1;
+        var position=0;
+        var velocity=15;
+        var pac1=document.getElementById("pac1");
+        var pacman12=["images/PacMan1.png","images/PacMan2.png"]
+        var pacman34=["images/PacMan3.png","images/PacMan4.png"]
+        var index=0;
+        
+        function move()
+        {
+            position = position + direction * velocity
+            pac1.style.left= position + 'px' 
+        
+            if(position<=0 ||position>=1070){
+               direction=direction*-1;
+            }
+            if(direction==1){
+               pac1.src=pacman12[index];
+               index=(index+1) % pacman12.length
+               
+            }
+            else{
+                pac1.src=pacman34[index];
+                index=(index+1) % pacman34.length;
+                
+            }
+            setTimeout(move,100)
+        
+        }
+        move()
+        
+        
+        </script>
+    
+    .
+</body>
+</html>
